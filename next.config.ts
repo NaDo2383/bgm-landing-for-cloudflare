@@ -54,7 +54,9 @@ const nextConfig: NextConfig = {
   },
 
   images: {
-    unoptimized: true,
+    // Set loader to 'custom' and point to your loader file
+    loader: "custom",
+    loaderFile: "./image-loader.ts",
     remotePatterns: [
       {
         protocol: "https",
