@@ -1,17 +1,16 @@
 name = "bgm-landing"
 main = ".open-next/worker.js"
-compatibility_date = "2025-12-24" # Use the current date
+compatibility_date = "2025-12-24" 
 compatibility_flags = ["nodejs_compat"]
-assets = { directory = ".open-next/assets", binding = "ASSETS" }
 
 [[r2_buckets]]
-binding = "NEXT_INC_CACHE_R2_BUCKET"  
+binding = "NEXT_INC_CACHE_R2_BUCKET"
 bucket_name = "my-next-cache-bucket"
 
 [[services]]
 binding = "WORKER_SELF_REFERENCE"
 service = "bgm-landing"
 
-[[kv_namespaces]]
-binding = "NEXT_CACHE_METHODS"
-id = "<your-kv-id>"
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
