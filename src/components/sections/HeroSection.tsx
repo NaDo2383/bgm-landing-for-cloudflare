@@ -16,7 +16,7 @@ export default function HeroSection() {
           playsInline
           className='absolute inset-0 w-full h-full object-cover'>
           <source
-            src='/https://pub-51a5a4fe828144e39fb1107407e6e30d.r2.dev/hero-video-2k.mp4'
+            src='https://pub-51a5a4fe828144e39fb1107407e6e30d.r2.dev/hero-video-2k.mp4'
             type='video/mp4'
           />
         </video>
