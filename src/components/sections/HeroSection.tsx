@@ -15,7 +15,10 @@ export default function HeroSection() {
           autoPlay
           playsInline
           className='absolute inset-0 w-full h-full object-cover'>
-          <source src='/hero-video-2k.mp4' type='video/mp4' />
+          <source
+            src='/https://pub-51a5a4fe828144e39fb1107407e6e30d.r2.dev/hero-video-2k.mp4'
+            type='video/mp4'
+          />
         </video>
       </div>
       <div className='absolute inset-0 w-full h-full bg-[linear-gradient(180deg,rgba(255,255,255,0)_56%,rgba(0,0,0,1)_100%)] z-10' />
