@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  output: 'standalone',
   // Make Turbopack (dev) respect aliases too
   experimental: {
     turbo: {
