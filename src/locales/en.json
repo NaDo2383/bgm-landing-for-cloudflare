@@ -1,0 +1,245 @@
+{
+  "general": {
+    "seeMore": "Learn More"
+  },
+  "nav": {
+    "about": "About Us",
+    "management": "Asset Management",
+    "careers": "Careers",
+    "news": "News & Insight",
+    "contact": "Contact Us",
+    "faq": "FAQ",
+    "subscribe": "Subscribe"
+  },
+  "aboutCard": {
+    "title": "What is",
+    "title1": "Balanced Growth",
+    "companyName": "Balanced Growth Management",
+    "text": "The Concept of Balanced Growth was first introduced in the 1950s by economist Ragnar Nurkse. It emphasizes the importance of developing all key sectors of the economy such as agriculture, industry, and services in parallel to achieve long-term, stable growth. Instead of focusing on a single area, Nurkse believed that coordinated investment across multiple sectors would expand domestic markets and create a positive ripple effect across the economy.",
+    "text1": "Today, this principle goes beyond macroeconomics and is widely applied in business and investment strategies. It represents a smart balance between risk and return prioritizing sustainable progress over short term gains.",
+    "text2": "At Balanced Growth Management, we are committed to this philosophy. We strive to deliver long-term, stable investment solutions for our clients and partners guided by trust, strategy, and a vision for sustainable financial growth.",
+    "cardText": "YES, WE ARE BALANCERS"
+  },
+  "hero": {
+    "title1": "shaping Mongolia’s financial",
+    "title": "future with trust and innovation",
+    "title2": "Simplifying Investments",
+    "startInvesting": "Start Investing Today",
+    "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat nunc in leo vestibulum, at congue erat accumsan.",
+    "cta": "Get Started"
+  },
+  "stats": {
+    "users": "users",
+    "status": "successful",
+    "number": "trilliion"
+  },
+  "capabilities": {
+    "title1": "Our",
+    "title2": "Capabilities",
+    "seeMore": "See more",
+    "text": "We combine portfolio management, market research, and advisory expertise to deliver \ncomplete investment solutions.",
+    "card1": {
+      "title": "Porfolio Management",
+      "description": "Tailored Investment Solutions \n\nWe construct and manage customized portfolios aligned with your goals, risk appetite, and long-term vision."
+    },
+    "card2": {
+      "title": "Market Research",
+      "description": "Data-Driven Insights \n\nOur expert analysts provide in-depth market research and forecasting to support informed investment decisions."
+    },
+    "card3": {
+      "title": "Wealth Advisory",
+      "description": "End-to-End Client Support \n\nFrom strategy to execution, we guide high-net-worth clients with personalized wealth management solutions."
+    }
+  },
+  "news": {
+    "title1": "News & ",
+    "title2": "Insight",
+    "text": "Explore expert perspectives, research, and commentary on global and local markets.",
+    "seeMore": "See more"
+  },
+  "team": {
+    "title1": "Our Experts ",
+    "title2": "Are Like no Others",
+    "seeMore": "See more",
+    "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis nunc a molestie dictum."
+  },
+  "faq": {
+    "title1": "frequently asked questions",
+    "title2": "FAQs designed to provide the information you need"
+  },
+  "footer": {
+    "newsletter": "LET'S KEEP IN TOUCH",
+    "subscribe": "Subscribe",
+    "address": "Central Tower, 4th Floor, Room 409, \nSBD, 8th Khoroo, Ulaanbaatar",
+    "reserved": " BGM. All rights reserved",
+    "links": "Links",
+    "terms-of-service": "Terms of service",
+    "privacy-policy": "Privacy policy",
+    "pages": "Pages",
+    "about-us": "About us",
+    "asset-management": "Asset Management",
+    "career": "Careers",
+    "news-insights": "News & Insight",
+    "contact": "Contacts"
+  },
+  "emailAlerts": {
+    "title": "Email Alerts",
+    "subtitle": "FAQs Designed To Provide The Information You Need.",
+    "placeholder": "Your Email",
+    "cta": "Sign Up",
+    "signing": "Signing Up...",
+    "news": "News & Insights",
+    "market": "Market Outlook",
+    "funds": "Fund Updates",
+    "success": "Thanks! You’re subscribed.",
+    "failed": "Subscription failed. Please try again."
+  },
+
+  "newsInsight": {
+    "title1": "News & Insights",
+    "title2": "Global economic news & Macro Insights by \nBGM Asset Management",
+    "category": "category",
+    "search": "search",
+    "news": "News",
+    "news-letter": "Newsletter",
+    "outlook": "Outlook"
+  },
+  "about-us": {
+    "title1": "about us",
+    "header1": "our",
+    "header2": "company",
+    "header3": "Balanced Growth Management",
+    "ceo-creeting": "Asset management isn’t just about numbers. It’s about building trust, staying disciplined, and thinking ahead. \n\nEvery portfolio we create should show honesty and new ideas based on research and guided by strong belief.",
+    "cio-creeting": "There are thousands of investment opportunities around the world. We, Mongolians, should be closer to those opportunities. \n\nOur goal is to help our clients reach them easily. When our clients grow, we grow. We grow together.",
+    "mission": "mission",
+    "mission-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis nunc a molestie dictum. Mauris venenatis, felis scelerisque aliquet lacinia, nulla nisi venenatis odio, id blandit mauris ipsum id sapien.",
+    "vision": "vision",
+    "vision-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis nunc a molestie dictum. Mauris venenatis, felis scelerisque aliquet lacinia, nulla nisi venenatis odio, id blandit mauris ipsum id sapien.",
+    "value": "value",
+    "value-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis nunc a molestie dictum. Mauris venenatis, felis scelerisque aliquet lacinia, nulla nisi venenatis odio, id blandit mauris ipsum id sapien.",
+    "ceo-name": "Odmaa Davaanyam",
+    "ceo-pos": "Chief Executive Officer",
+    "cio-name": "Margad.G ",
+    "cio-pos": "Chief Investment Officer",
+    "bgm-name": "Balanced Growth Management",
+    "text1": "Our company was established with the vision of combining traditional financial markets with technology and innovation to deliver professional, cutting-edge products and services. We operate with the investment and support of TESO Group",
+    "text2": "As an asset management company, we create and manage investment funds as tools to grow wealth. By 2025, we manage a total portfolio of approximately ₮50 billion through two licensed private funds and a savings fund program.",
+    "title1small": "Mission",
+    "title2small": "Vision",
+    "title3small": "Value",
+    "text1small": "Driving financial market \ngrowth through innovation \nand expertise",
+    "text2small": "Making global finance \naccessible for Mongolia",
+    "text3small": "Professional ethics and \ntransparency Innovation and \ntechnology",
+    "whatwedo": "What We Do ?",
+    "BGTheory": "Balanced Growth Theory",
+    "BGMAssetmanagement": "BGM Asset Management",
+    "Team introduction": "Team Introduction",
+    "boardMembers": "Board members",
+    "boardMembersText": "A Team of visionary leaders driving BGM’s mission \ntoward sustainable and inclusive growth.",
+    "boardMemberTitle1": "CEO Teso Group",
+    "boardMemberTitle2": "CEO Teso Group",
+    "boardMemberTitle3": "CEO Teso Group",
+    "boardMemberName1": "S. Bolor",
+    "boardMemberName2": "S. Bolor",
+    "boardMemberName3": "S. Bolor"
+  },
+  "whatWeDo": {
+    "title": "What We Do",
+    "subtitle": "Through our funds, we transform financial insight into opportunity helping investors \ngrow with confidence and purpose.",
+    "aria": {
+      "listbox": "What we do options",
+      "item": "Select {title}"
+    },
+    "items": {
+      "fixed": {
+        "title": "BGM Fixed Income fund",
+        "desc": "That’s Why we Leverage AI to create impactful, lasting experiences that engage, and transform every interaction",
+        "alt": "Fixed income fund cover"
+      },
+      "realestate": {
+        "title": "BGM Real estate fund",
+        "desc": "That’s Why we Leverage AI to create impactful, lasting experiences that engage, and transform every interaction",
+        "alt": "Real estate fund cover"
+      },
+      "retirement": {
+        "title": "Retirement & Savings Plan",
+        "desc": "That’s Why we Leverage AI to create impactful, lasting experiences that engage, and transform every interaction",
+        "alt": "Retirement & savings plan cover"
+      }
+    }
+  },
+  "outlook": {
+    "title1": "Global Outlook",
+    "title2": "Monthly Global Investment & Macro Insights by \nBGM Asset Management"
+  },
+  "careers": {
+    "title1": "Careers at bgm",
+    "title2": "Global economic news & Macro Insights by \nBGM Asset Management",
+    "life-at-bgm": "Life at BGM",
+    "benefits": "Benefits",
+    "students-and-graduates": "Students & Graduates",
+    "students-and-graduates-text": "BGM offers the “Career Journey” and “Early Bird” internship programs, providing students with real industry experience, skill \ndevelopment, and opportunities to become part of the company’s future talent pool.",
+    "career-developments": "Career Development",
+    "career-developments-text": "BGM provides continuous learning and development opportunities through professional certification support, BGM Academy programs in \nclient relations, technology, investment, leadership, and management skills, as well as online learning packages from institutions such as \nHarvard Business Institute and Udemy, while also enabling employees to build strong internal and external professional networks.",
+    "social-campaign": "Social Good Campaign",
+    "social-campaign-text": "BGM supports health, education, and environmental initiatives through blood donation, \nacademic sponsorships, and annual tree planting.",
+    "life-at-bgm-text": "BGM values a culture of shared purpose, structured and reliable operations, and growth driven \nby listening to the voices of its employees.",
+    "purpose-culture": "Purpose Culture",
+    "purpose-culture-text": "The operations of BGM are closely aligned with employees’ day-to-day responsibilities, all working together toward a clear and meaningful \npurpose.",
+    "order-culture": "Order Culture",
+    "order-culture-text": "We believe that adhering to clear rules and procedures, standardizing our operations, and maintaining a consistent and sustainable system are of utmost importance in everything we do.",
+    "v-of-emp": "Voice of Employee",
+    "v-of-emp-text": "We strive to incorporate employees’ ideas, experience, and initiatives into the organization’s major decision-making, policy development, and day-to-day operations. ",
+    "benefits-text": "BGM implements comprehensive programs that promote the financial, physical, mental, and work-life well-being of its employees.",
+    "financial": "Financial well-being",
+    "life-balance": "Life Balance",
+    "pay-for-perf": "Pay for Performance",
+    "h&p-well-being": "Health & Physical well-being",
+    "mental-well-being": "Mental Health well-being",
+    "career-journey": "Career Journey",
+    "career-journey-text": "A paid internship program for students majoring in finance, banking, and business.\n\nCombining theoretical and practical training, the program provides real industry experience and offers career opportunities for outstanding talents.",
+    "early-bird": "Early Bird",
+    "early-bird-text": "A short, guided internship for graduating students interested in finance and investing—offering practical exposure to industry specifics and work practices to inform career choices.\n\nHeld annually at scale to grow the future talent pipeline and support the development of the sector.",
+    "apply-now": "Apply",
+    "pro-network": "Professional Network",
+    "health": "Health",
+    "health-text": "As part of our corporate social responsibility, we organize an annual Blood Donation Campaign with the voluntary participation of our employees.",
+    "edu": "Education",
+    "edu-text": "We participated as a sponsor of the 10th National Finance Management Olympiad as part of our corporate social responsibility.",
+    "search-job": "Search job",
+    "search-job-text": "Join our team and help shape the \nfuture of finance with BGM.",
+    "env": "Environment",
+    "env-text": "BGM has established its own grove within the “Orshikh Togol” project and plants trees there every year."
+  },
+  "search-job": {
+    "title1": "search job",
+    "title2": "Find career opportunities that match your \nskills and aspirations.",
+    "text": "Fill out the form \nYour next career starts here",
+    "name": "Name",
+    "age": "Age",
+    "edu": "Education",
+    "pos": "Position",
+    "phone": "Phone number",
+    "email": "Email",
+    "fields-are-req": "All fields are required",
+    "apply": "Apply"
+  },
+  "asset-management": {
+    "title1": "Asset management",
+    "simplify-invest": "Simplifying Investment",
+    "fixed-income": "Fixed Income fund",
+    "real-state": "Real estate fund",
+    "saving": "BGM Savings Plan",
+    "fixed-income-text": "The “BGM Fixed Income Portfolio Private Investment Fund” is the first investment fund established by our company with the purpose of creating sustainable growth and shared value. \n\nIt provides professional and ethical investment services by managing risks prudently and building a portfolio of fixed-income instruments based on comprehensive research and analysis.",
+    "real-state-text": "The “BGM Real Estate Portfolio Private Investment Fund” is an investment fund dedicated to creating future value for investors by combining asset and real estate management. \n\nIt focuses on value-driven real estate investments, guided by comprehensive research and international standards of risk management.",
+    "saving-text": "Balanced Growth Management LLC, operating under a special license from the Financial Regulatory Commission, implements the “Savings Program” to responsibly manage monthly contributions from employers and employees. \n\nThe program aims to promote long-term financial security, create sustainable value, and support the shared goal of building financial freedom for the future.",
+    "fundeManagerTitle1": "BGM Fund manager",
+    "fundeManagerTitle2": "BGM Fund manager",
+    "fundeManagerTitle3": "BGM Fund manager",
+    "fundeManagerName1": "Bilegt G",
+    "fundeManagerName2": "Oyunjunai KH",
+    "fundeManagerName3": "Aminaa B",
+    "teamIntroducition": "Team Introducition",
+    "teamIntroducitionText": "Speak directly with our investment professionals to explores \ntrategies tailored to your goals."
+  }
+}
