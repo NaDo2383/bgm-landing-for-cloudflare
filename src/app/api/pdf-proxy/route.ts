@@ -1,6 +1,9 @@
 // app/api/pdf-proxy/route.ts
 import { NextRequest, NextResponse } from "next/server"
 
+export const dynamic = "force-dynamic";
+// Note: OpenNext Cloudflare adapter handles edge runtime automatically
+
 function extractDriveFileId(input: string): string | null {
   try {
     const url = new URL(input)

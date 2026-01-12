@@ -1,10 +1,11 @@
-import { getAdminDB } from "@/lib/firebase-admin";
+import { getDocument, deleteDocument } from "@/lib/firebase-server";
 import { NextRequest, NextResponse } from "next/server";
 
-
 export const dynamic = "force-dynamic";
+// Note: OpenNext Cloudflare adapter handles edge runtime automatically
 
-/** * GET /api/news/:id 
+/**
+ * GET /api/news/:id
  * Fetches a single news item by ID
  */
 export async function GET(
@@ -13,24 +14,21 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const db = getAdminDB(); // Singleton helper to avoid re-initialization
+    const data = await getDocument("news", id);
 
-    const docSnap = await db.collection("news").doc(id).get();
-
-    if (!docSnap.exists) {
+    if (!data) {
       return NextResponse.json(
         { error: "News item not found" },
         { status: 404 }
       );
     }
 
-    const data = docSnap.data();
-
     return NextResponse.json({
-      id: docSnap.id,
-      ...data,
-      // Helper: Firestore Timestamps need to be converted to JSON-friendly format
-      createdAt: data?.createdAt?.toMillis?.() || data?.createdAt || null,
+      id: data._id,
+      title: data.title ?? "",
+      description: data.description ?? "",
+      imageUrl: data.imageUrl ?? "",
+      createdAt: data.createdAt ?? null,
     });
   } catch (err) {
     console.error("[GET News ID Error]:", err);
@@ -41,7 +39,8 @@ export async function GET(
   }
 }
 
-/** * DELETE /api/news/:id 
+/**
+ * DELETE /api/news/:id
  * Removes a news item by ID
  */
 export async function DELETE(
@@ -50,19 +49,17 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
-    const db = getAdminDB();
 
-    const docRef = db.collection("news").doc(id);
-    const docSnap = await docRef.get();
-
-    if (!docSnap.exists) {
+    // First check if document exists
+    const data = await getDocument("news", id);
+    if (!data) {
       return NextResponse.json(
         { error: "Item not found" },
         { status: 404 }
       );
     }
 
-    await docRef.delete();
+    await deleteDocument("news", id);
 
     return NextResponse.json({
       message: "Successfully deleted",

@@ -1,72 +1,81 @@
-// src/app/api/news/route.ts
-import { adminDB } from "@/lib/firebase-admin"
-import { NextRequest, NextResponse } from "next/server"
-import { Timestamp } from "firebase-admin/firestore"
+// src/app/api/outlook/route.ts
+import { getCollection, createDocument } from "@/lib/firebase-server";
+import { NextRequest, NextResponse } from "next/server";
+
+export const dynamic = "force-dynamic";
+// Note: OpenNext Cloudflare adapter handles edge runtime automatically
 
 type OutlookDoc = {
-  id: string
-  title: string
-  path: string
-  year: number
-  createdAt: Timestamp | Date | null | undefined
-}
+  _id?: string;
+  id?: string;
+  title: string;
+  path: string;
+  year: number;
+  createdAt: number | null;
+};
 
 type PostBody = {
-  title: string
-  path: string
-  year: number
-}
-
-// Helper: normalize createdAt to milliseconds for sorting
-function toMillis(value: OutlookDoc["createdAt"]): number {
-  if (value instanceof Date) return value.getTime()
-  if (value instanceof Timestamp) return value.toMillis()
-  // Fallbacks for unexpected shapes
-  if (value && typeof (value as any).toMillis === "function") return (value as any).toMillis()
-  if (typeof value === "number") return value
-  return 0
-}
+  title: string;
+  path: string;
+  year: number;
+};
 
 export async function GET(req: NextRequest) {
-  const { searchParams } = new URL(req.url)
-  const yearParam = searchParams.get("year")
-  const year = yearParam ? Number(yearParam) : undefined
-  const isYearValid = Number.isInteger(year as number)
+  try {
+    const { searchParams } = new URL(req.url);
+    const yearParam = searchParams.get("year");
+    const year = yearParam ? Number(yearParam) : undefined;
 
-  const col = adminDB.collection("outlook")
+    // Fetch all outlook documents
+    const data = await getCollection("outlook", {
+      orderBy: "createdAt",
+      orderDirection: "DESCENDING",
+    });
 
-  const snapshot = isYearValid
-    ? await col.where("year", "==", year).get()
-    : await col.get()
+    // Format and filter by year if provided
+    let items: OutlookDoc[] = data.map((doc) => ({
+      id: doc._id,
+      title: doc.title ?? "",
+      path: doc.path ?? "",
+      year: doc.year ?? 0,
+      createdAt: doc.createdAt ?? null,
+    }));
 
-  const data: OutlookDoc[] = snapshot.docs.map((doc) => {
-    const raw = doc.data() as Omit<OutlookDoc, "id">
-    return { id: doc.id, ...raw }
-  })
+    // Filter by year if specified
+    if (Number.isInteger(year)) {
+      items = items.filter((item) => item.year === year);
+    }
 
-  const sorted = data.sort((a, b) => toMillis(b.createdAt) - toMillis(a.createdAt)) // newest first
-  return NextResponse.json(sorted)
+    // Sort by createdAt descending (newest first)
+    items.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
+
+    return NextResponse.json(items);
+  } catch (err) {
+    console.error("[GET /api/outlook] Error:", err);
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+  }
 }
 
 export async function POST(req: NextRequest) {
   try {
-    const body = (await req.json()) as Partial<PostBody>
+    const body = (await req.json()) as Partial<PostBody>;
 
-    // Minimal runtime validation to satisfy TS + avoid bad writes
+    // Minimal runtime validation
     if (!body?.title || !body?.path || typeof body?.year !== "number") {
-      return NextResponse.json({ error: "Invalid payload" }, { status: 400 })
+      return NextResponse.json({ error: "Invalid payload" }, { status: 400 });
     }
 
-    const ref = await adminDB.collection("outlook").add({
+    const id = await createDocument("outlook", {
       title: body.title,
       path: body.path,
       year: body.year,
-      createdAt: new Date(), // or use admin.firestore.FieldValue.serverTimestamp()
-    })
+      createdAt: new Date(),
+    });
 
-    return NextResponse.json({ id: ref.id }, { status: 201 })
+    return NextResponse.json({ id }, { status: 201 });
   } catch (err) {
-    console.error("[POST /api/outlook] Error:", err)
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 })
+    console.error("[POST /api/outlook] Error:", err);
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
+

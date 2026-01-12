@@ -1,0 +1,234 @@
+﻿
+ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+Γöé OpenNext ΓÇö Cloudflare build Γöé
+ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+
+node.exe : WARN OpenNext is 
+not fully compatible with 
+Windows.
+At C:\Program 
+Files\nodejs\npx.ps1:16 
+char:5
++     & "$basedir/node$exe"  
+"$basedir/node_modules/npm/bi
+n/npx-cli.js" ...
++     ~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecified: (WARN Op  
+  enNext i...e with Window   
+ s.:String) [], RemoteExc    
+eption
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+WARN For optimal 
+performance, it is 
+recommended to use Windows 
+Subsystem for Linux (WSL).
+WARN While OpenNext may 
+function on Windows, it 
+could encounter 
+unpredictable failures 
+during runtime.
+(node:24320) [DEP0040] 
+DeprecationWarning: The 
+`punycode` module is 
+deprecated. Please use a 
+userland alternative instead.
+(Use `node 
+--trace-deprecation ...` to 
+show where the warning was 
+created)
+App directory: D:\projects\temp\bgm-landing-test
+Next.js version : 15.4.10
+@opennextjs/cloudflare version: 1.14.7
+@opennextjs/aws version: 3.9.7
+
+ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+Γöé OpenNext ΓÇö Building Next.js app Γöé
+ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+
+
+> intro-web@0.1.0 build
+> next build
+
+ ΓÜá The config property 
+`experimental.turbo` is 
+deprecated. Move this 
+setting to 
+`config.turbopack` as 
+Turbopack is now stable.
+   Γû▓ Next.js 15.4.10
+   - Environments: .env.local, .env
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully in 5.0s
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+ ΓÜá Using edge runtime on a 
+page currently disables 
+static generation for that 
+page
+   Generating static pages (0/15) ...
+   Generating static pages (3/15) 
+   Generating static pages (7/15) 
+   Generating static pages (11/15) 
+ Γ£ô Generating static pages (15/15)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+Γöî ╞Æ /                                    11.6 kB         201 kB
+Γö£ ╞Æ /_not-found                            995 B         101 kB
+Γö£ ╞Æ /about-us                            4.63 kB         162 kB
+Γö£ ╞Æ /admin                                 159 B         100 kB
+Γö£ ╞Æ /admin/login                         92.7 kB         200 kB
+Γö£ ╞Æ /admin/news                          6.26 kB         172 kB
+Γö£ ╞Æ /admin/outlook                       1.38 kB         125 kB
+Γö£ ╞Æ /api/contact-us                        159 B         100 kB
+Γö£ ╞Æ /api/news                              159 B         100 kB
+Γö£ ╞Æ /api/news/[id]                         159 B         100 kB
+Γö£ ╞Æ /api/outlook                           159 B         100 kB
+Γö£ ╞Æ /api/outlook/[id]                      159 B         100 kB
+Γö£ ╞Æ /api/pdf-proxy                         159 B         100 kB
+Γö£ ╞Æ /api/search-job                        159 B         100 kB
+Γö£ ╞Æ /asset-management                    2.94 kB         124 kB
+Γö£ ╞Æ /brochure                            1.38 kB         101 kB
+Γö£ ╞Æ /careers                             5.14 kB         174 kB
+Γö£ ╞Æ /careers/search-job                  26.3 kB         163 kB
+Γö£ ╞Æ /news-Insight                         5.7 kB         187 kB
+Γö£ ╞Æ /news-Insight/[newsId]               1.97 kB         144 kB
+Γö£ ╞Æ /outlook                               159 B         100 kB
+Γöö ╞Æ /outlook/[year]                      3.29 kB         141 kB
++ First Load JS shared by all             100 kB
+  Γö£ chunks/4bd1b696-223acfa09453497a.js  54.1 kB
+  Γö£ chunks/5964-aa1e63fe308cbca5.js      43.6 kB
+  Γöö other shared chunks (total)           2.2 kB
+
+
+╞Æ  (Dynamic)  server-rendered on demand
+
+
+ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+Γöé OpenNext ΓÇö Generating bundle Γöé
+ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+
+Bundling middleware function...
+Bundling static assets...
+Bundling cache assets...
+Building server function: default...
+opennextjs-cloudflare build
+
+Build an OpenNext Cloudflare 
+worker
+
+Options:
+      --help                 
+       Show help             
+             [boolean]
+      --version              
+       Show version number   
+             [boolean]
+  -c, --config               
+       Path to Wrangler 
+configuration file [string]
+      --configPath           
+       Path to Wrangler 
+configuration file
+                             
+                             
+ [deprecated] [string]
+  -e, --env                  
+       Wrangler environment 
+to use for operations
+                             
+                             
+              [string]
+  -s, --skipNextBuild, 
+--skipBuild  Skip building 
+the Next.js app
+                             
+                         
+[boolean] [default: false]
+      --noMinify             
+       Disable worker 
+minification
+                             
+                         
+[boolean] [default: false]
+      
+--skipWranglerConfigCheck    
+ Skip checking for a 
+Wrangler config
+                             
+                         
+[boolean] [default: false]
+      --openNextConfigPath   
+       Path to the OpenNext 
+configuration file
+                             
+                             
+              [string]
+
+Error: 
+-----------------------------
+-----------------------------
+----------------------
+app/api\contact-us\route 
+cannot use the edge runtime.
+OpenNext requires edge 
+runtime function to be 
+defined in a separate 
+function.
+See the docs for more 
+information on how to bundle 
+edge runtime functions.
+-----------------------------
+-----------------------------
+----------------------
+        
+    at 
+computeCopyFilesForPage (file
+:///D:/projects/temp/bgm-land
+ing-test/node_modules/@openne
+xtjs/aws/dist/build/copyTrace
+dFiles.js:108:23)
+    at file:///D:/projects/te
+mp/bgm-landing-test/node_modu
+les/@opennextjs/aws/dist/buil
+d/copyTracedFiles.js:173:9
+    at Array.forEach 
+(<anonymous>)
+    at copyTracedFiles (file:
+///D:/projects/temp/bgm-landi
+ng-test/node_modules/@opennex
+tjs/aws/dist/build/copyTraced
+Files.js:172:12)
+    at generateBundle (file:/
+//D:/projects/temp/bgm-landin
+g-test/node_modules/@opennext
+js/cloudflare/dist/cli/build/
+open-next/createServerBundle.
+js:121:60)
+    at createServerBundle (fi
+le:///D:/projects/temp/bgm-la
+nding-test/node_modules/@open
+nextjs/cloudflare/dist/cli/bu
+ild/open-next/createServerBun
+dle.js:75:11)
+    at process.processTicksAn
+dRejections (node:internal/pr
+ocess/task_queues:105:5)
+    at async build (file:///D
+:/projects/temp/bgm-landing-t
+est/node_modules/@opennextjs/
+cloudflare/dist/cli/build/bui
+ld.js:70:5)
+    at async buildCommand (fi
+le:///D:/projects/temp/bgm-la
+nding-test/node_modules/@open
+nextjs/cloudflare/dist/cli/co
+mmands/build.js:21:5)

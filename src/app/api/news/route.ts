@@ -1,11 +1,13 @@
 // src/app/api/news/route.ts
-import { getAdminDB } from "@/lib/firebase-admin";
+import { getCollection, createDocument } from "@/lib/firebase-server";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
 // Force this route to be dynamic to prevent Next.js from attempting 
 // to initialize Firebase during the static build phase.
 export const dynamic = 'force-dynamic';
+
+// Note: OpenNext Cloudflare adapter handles edge runtime automatically
 
 // ---------- SCHEMAS ----------
 const PostSchema = z.object({
@@ -31,20 +33,9 @@ const QuerySchema = z.object({
     .transform((v) => (v === "1" || v === "true" ? true : undefined)),
 });
 
-// ---------- UTILS ----------
-function toMillis(value: unknown): number | null {
-  if (value && typeof (value as any).toMillis === "function") return (value as any).toMillis();
-  if (value instanceof Date) return value.getTime();
-  if (typeof value === "number") return value;
-  return null;
-}
-
 // ---------- GET ----------
 export async function GET(req: NextRequest) {
   try {
-    // Initialize DB only when the request is made
-    const db = getAdminDB();
-
     const { searchParams } = new URL(req.url);
     const parsed = QuerySchema.safeParse({
       limit: searchParams.get("limit") ?? undefined,
@@ -56,32 +47,30 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: "Invalid query" }, { status: 400 });
     }
 
-    const { limit = 20, after, latest } = parsed.data;
+    const { limit = 20, latest } = parsed.data;
+
+    // Fetch news from Firestore via REST API
+    const items = await getCollection("news", {
+      orderBy: "createdAt",
+      orderDirection: "DESCENDING",
+      limit: latest ? 1 : limit,
+    });
 
     // Handle 'latest' shortcut
     if (latest) {
-      const snap = await db
-        .collection("news")
-        .orderBy("createdAt", "desc")
-        .limit(1)
-        .get();
-
-      if (snap.empty) {
+      const item = items[0] || null;
+      if (!item) {
         return NextResponse.json({ item: null }, { status: 200 });
       }
-
-      const doc = snap.docs[0];
-      const d = doc.data() as Record<string, any>;
-      const createdAt = toMillis(d.createdAt);
 
       return NextResponse.json(
         {
           item: {
-            id: doc.id,
-            title: d.title ?? "",
-            description: d.description ?? "",
-            imageUrl: d.imageUrl ?? "",
-            createdAt,
+            id: item._id,
+            title: item.title ?? "",
+            description: item.description ?? "",
+            imageUrl: item.imageUrl ?? "",
+            createdAt: item.createdAt,
           },
         },
         { status: 200, headers: { "Cache-Control": "private, max-age=5" } }
@@ -89,31 +78,19 @@ export async function GET(req: NextRequest) {
     }
 
     // Normal paginated list
-    let q = db.collection("news").orderBy("createdAt", "desc").limit(limit);
-    if (after) q = q.startAfter(new Date(after));
+    const formattedItems = items.map((item) => ({
+      id: item._id,
+      title: item.title ?? "",
+      description: item.description ?? "",
+      imageUrl: item.imageUrl ?? "",
+      createdAt: item.createdAt,
+    }));
 
-    const snap = await q.get();
-    const items = snap.docs.map((doc) => {
-      const d = doc.data() as Record<string, any>;
-      const createdAt = toMillis(d.createdAt);
-      return {
-        id: doc.id,
-        title: d.title ?? "",
-        description: d.description ?? "",
-        imageUrl: d.imageUrl ?? "",
-        createdAt,
-      };
-    });
-
-    const last = snap.docs.at(-1);
-    const nextCursor =
-      last?.get("createdAt")?.toMillis?.() ??
-      (last?.get("createdAt") instanceof Date
-        ? (last.get("createdAt") as Date).getTime()
-        : null);
+    const lastItem = items[items.length - 1];
+    const nextCursor = lastItem?.createdAt ?? null;
 
     return NextResponse.json(
-      { items, nextCursor: nextCursor ?? null },
+      { items: formattedItems, nextCursor },
       { status: 200, headers: { "Cache-Control": "private, max-age=5" } }
     );
   } catch (err) {
@@ -125,7 +102,6 @@ export async function GET(req: NextRequest) {
 // ---------- POST ----------
 export async function POST(req: NextRequest) {
   try {
-    const db = getAdminDB();
     const json = await req.json();
     const parsed = PostSchema.safeParse(json);
 
@@ -137,14 +113,14 @@ export async function POST(req: NextRequest) {
     }
 
     const { title, description, imageUrl } = parsed.data;
-    const ref = await db.collection("news").add({
+    const id = await createDocument("news", {
       title,
       description,
       imageUrl: imageUrl ?? null,
       createdAt: new Date(),
     });
 
-    return NextResponse.json({ id: ref.id }, { status: 201 });
+    return NextResponse.json({ id }, { status: 201 });
   } catch (err) {
     console.error("[POST /api/news] Error:", err);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });

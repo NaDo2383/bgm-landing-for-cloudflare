@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 // Force dynamic to prevent build-time errors regarding environment variables
 export const dynamic = "force-dynamic";
+// Note: OpenNext Cloudflare adapter handles edge runtime automatically
 
 interface ContactFormData {
   email: string;

@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server"
 
+export const dynamic = "force-dynamic";
+// Note: OpenNext Cloudflare adapter handles edge runtime automatically
+
 interface SearchJobType {
   age: string
   education: string
