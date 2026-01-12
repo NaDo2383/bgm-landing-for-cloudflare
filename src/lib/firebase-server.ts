@@ -79,6 +79,10 @@ export async function getCollection(
 ): Promise<any[]> {
   const url = new URL(`${FIRESTORE_BASE_URL}/${collectionName}`);
 
+  if (FIREBASE_API_KEY) {
+    url.searchParams.append("key", FIREBASE_API_KEY);
+  }
+
   if (options?.limit) {
     url.searchParams.set("pageSize", String(options.limit));
   }
@@ -109,9 +113,13 @@ export async function getDocument(
   collectionName: string,
   documentId: string
 ): Promise<any | null> {
-  const url = `${FIRESTORE_BASE_URL}/${collectionName}/${documentId}`;
+  const url = new URL(`${FIRESTORE_BASE_URL}/${collectionName}/${documentId}`);
 
-  const response = await fetch(url, {
+  if (FIREBASE_API_KEY) {
+    url.searchParams.append("key", FIREBASE_API_KEY);
+  }
+
+  const response = await fetch(url.toString(), {
     headers: {
       "Content-Type": "application/json",
     },
@@ -135,14 +143,18 @@ export async function createDocument(
   collectionName: string,
   data: Record<string, any>
 ): Promise<string> {
-  const url = `${FIRESTORE_BASE_URL}/${collectionName}`;
+  const url = new URL(`${FIRESTORE_BASE_URL}/${collectionName}`);
+
+  if (FIREBASE_API_KEY) {
+    url.searchParams.append("key", FIREBASE_API_KEY);
+  }
 
   const fields: any = {};
   for (const [key, value] of Object.entries(data)) {
     fields[key] = toFirestoreValue(value);
   }
 
-  const response = await fetch(url, {
+  const response = await fetch(url.toString(), {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -166,14 +178,18 @@ export async function updateDocument(
   documentId: string,
   data: Record<string, any>
 ): Promise<void> {
-  const url = `${FIRESTORE_BASE_URL}/${collectionName}/${documentId}`;
+  const url = new URL(`${FIRESTORE_BASE_URL}/${collectionName}/${documentId}`);
+
+  if (FIREBASE_API_KEY) {
+    url.searchParams.append("key", FIREBASE_API_KEY);
+  }
 
   const fields: any = {};
   for (const [key, value] of Object.entries(data)) {
     fields[key] = toFirestoreValue(value);
   }
 
-  const response = await fetch(url, {
+  const response = await fetch(url.toString(), {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -192,9 +208,13 @@ export async function deleteDocument(
   collectionName: string,
   documentId: string
 ): Promise<void> {
-  const url = `${FIRESTORE_BASE_URL}/${collectionName}/${documentId}`;
+  const url = new URL(`${FIRESTORE_BASE_URL}/${collectionName}/${documentId}`);
 
-  const response = await fetch(url, {
+  if (FIREBASE_API_KEY) {
+    url.searchParams.append("key", FIREBASE_API_KEY);
+  }
+
+  const response = await fetch(url.toString(), {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
