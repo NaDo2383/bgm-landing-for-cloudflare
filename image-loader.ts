@@ -2,22 +2,22 @@
 import type { ImageLoaderProps } from "next/image";
 
 /**
- * Cloudflare Image Loader
- * Transforms image requests to use Cloudflare's cdn-cgi endpoint.
+ * Simple Image Loader for Cloudflare Pages
+ * Serves images directly without transformation since Cloudflare Image Resizing
+ * requires Pro+ plans and doesn't work with Cloudflare Pages by default.
  */
 export default function cloudflareLoader({ src, width, quality }: ImageLoaderProps) {
-  // 1. Normalize source to remove leading slash if it exists
-  const normalizeSrc = (src: string) => (src.startsWith("/") ? src.slice(1) : src);
-
-  // 2. Define transformation parameters
-  const params = [`width=${width}`, `quality=${quality || 75}`, "format=auto"];
-
-  // 3. Local Development: Use standard Next.js dev server behavior
-  if (process.env.NODE_ENV === "development") {
-    return `${src}?${params.join("&")}`;
+  // For external URLs (http/https), return as-is
+  if (src.startsWith("http://") || src.startsWith("https://")) {
+    // If the URL supports query params for sizing (like Cloudinary), use them
+    if (src.includes("cloudinary.com")) {
+      // Cloudinary transformation
+      return src.replace("/upload/", `/upload/w_${width},q_${quality || 75}/`);
+    }
+    return src;
   }
 
-  // 4. Production: Route through Cloudflare's image transformation service
-  // Note: Your domain must be active on Cloudflare for this path to work
-  return `/cdn-cgi/image/${params.join(",")}/${normalizeSrc(src)}`;
+  // For local images, serve directly from origin
+  // The src already starts with "/" for local images
+  return src;
 }
