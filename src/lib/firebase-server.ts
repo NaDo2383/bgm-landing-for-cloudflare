@@ -88,7 +88,8 @@ export async function getCollection(
   }
 
   if (options?.orderBy) {
-    url.searchParams.set("orderBy", `${options.orderBy} ${options.orderDirection || "DESCENDING"}`);
+    const direction = options.orderDirection === "ASCENDING" ? "asc" : "desc";
+    url.searchParams.set("orderBy", `${options.orderBy} ${direction}`);
   }
 
   const response = await fetch(url.toString(), {
