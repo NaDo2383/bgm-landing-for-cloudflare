@@ -93,9 +93,15 @@ export async function GET(req: NextRequest) {
       { items: formattedItems, nextCursor },
       { status: 200, headers: { "Cache-Control": "private, max-age=5" } }
     );
-  } catch (err) {
+  } catch (err: any) {
     console.error("[GET /api/news] Error:", err);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json({
+      error: "Internal Server Error",
+      details: err.message || String(err),
+      env_check: {
+        has_project_id: !!process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID
+      }
+    }, { status: 500 });
   }
 }
 

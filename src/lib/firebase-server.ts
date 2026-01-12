@@ -95,8 +95,8 @@ export async function getCollection(
 
   if (!response.ok) {
     const error = await response.text();
-    console.error("Firestore GET Error:", error);
-    throw new Error(`Firestore error: ${response.status}`);
+    console.error(`Firestore GET Error [${url.toString()}]:`, error);
+    throw new Error(`Firestore error: ${response.status} - ${error} - URL: ${collectionName}`);
   }
 
   const data = await response.json();
